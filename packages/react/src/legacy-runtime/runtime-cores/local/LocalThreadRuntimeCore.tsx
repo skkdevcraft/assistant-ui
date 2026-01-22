@@ -1,19 +1,19 @@
 import { fromThreadMessageLike, generateId } from "../../../internal";
+import type { ModelContextProvider } from "../../../model-context";
 import type { AppendMessage, ThreadAssistantMessage } from "../../../types";
-import type { ChatModelAdapter, ChatModelRunResult } from "./ChatModelAdapter";
-import { shouldContinue } from "./shouldContinue";
-import type { LocalRuntimeOptionsBase } from "./LocalRuntimeOptions";
+import type { RunConfig } from "../../../types/AssistantTypes";
+import { BaseThreadRuntimeCore } from "../core/BaseThreadRuntimeCore";
 import type {
   AddToolResultOptions,
-  ResumeToolCallOptions,
-  ThreadSuggestion,
-  ThreadRuntimeCore,
-  StartRunConfig,
   ResumeRunConfig,
+  ResumeToolCallOptions,
+  StartRunConfig,
+  ThreadRuntimeCore,
+  ThreadSuggestion,
 } from "../core/ThreadRuntimeCore";
-import { BaseThreadRuntimeCore } from "../core/BaseThreadRuntimeCore";
-import type { RunConfig } from "../../../types/AssistantTypes";
-import type { ModelContextProvider } from "../../../model-context";
+import type { ChatModelAdapter, ChatModelRunResult } from "./ChatModelAdapter";
+import type { LocalRuntimeOptionsBase } from "./LocalRuntimeOptions";
+import { shouldContinue } from "./shouldContinue";
 
 class AbortError extends Error {
   override name = "AbortError";
@@ -65,6 +65,7 @@ export class LocalThreadRuntimeCore
     contextProvider: ModelContextProvider,
     options: LocalRuntimeOptionsBase,
   ) {
+    debugger;
     super(contextProvider);
     this.__internal_setOptions(options);
   }
@@ -127,6 +128,7 @@ export class LocalThreadRuntimeCore
 
   private _loadPromise: Promise<void> | undefined;
   public __internal_load() {
+    debugger;
     if (this._loadPromise) return this._loadPromise;
 
     const promise = this.adapters.history?.load() ?? Promise.resolve(null);
