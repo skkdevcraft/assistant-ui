@@ -100,6 +100,11 @@ const ThreadWelcome: FC = () => {
 
 const SUGGESTIONS = [
   {
+    title: "2+2=?",
+    label: "with no thinking",
+    prompt: "Tell me the answer of 2+2=?. Output only the answer!",
+  },
+  {
     title: "What's the weather",
     label: "in San Francisco?",
     prompt: "What's the weather in San Francisco?",

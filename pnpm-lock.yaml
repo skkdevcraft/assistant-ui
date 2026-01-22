@@ -1269,6 +1269,9 @@ importers:
       '@ai-sdk/openai':
         specifier: ^3.0.13
         version: 3.0.13(zod@4.3.5)
+      '@ai-sdk/react':
+        specifier: ^3.0.44
+        version: 3.0.44(react@19.2.3)(zod@4.3.5)
       '@assistant-ui/react':
         specifier: workspace:*
         version: link:../../packages/react

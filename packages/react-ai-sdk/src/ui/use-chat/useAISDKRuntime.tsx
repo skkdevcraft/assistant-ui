@@ -1,29 +1,29 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import type { UIMessage, useChat, CreateUIMessage } from "@ai-sdk/react";
-import { isToolUIPart } from "ai";
+import type { CreateUIMessage, UIMessage, useChat } from "@ai-sdk/react";
 import {
-  useExternalStoreRuntime,
-  type ExternalStoreAdapter,
-  type ThreadHistoryAdapter,
-  type AssistantRuntime,
-  type ThreadMessage,
-  type MessageFormatAdapter,
-  useRuntimeAdapters,
-  INTERNAL,
-  type ToolExecutionStatus,
   type AppendMessage,
+  type AssistantRuntime,
+  type ExternalStoreAdapter,
+  INTERNAL,
+  type MessageFormatAdapter,
+  type ThreadHistoryAdapter,
+  type ThreadMessage,
+  type ToolExecutionStatus,
+  useExternalStoreRuntime,
+  useRuntimeAdapters,
 } from "@assistant-ui/react";
-import { sliceMessagesUntil } from "../utils/sliceMessagesUntil";
-import { toCreateMessage } from "../utils/toCreateMessage";
-import { vercelAttachmentAdapter } from "../utils/vercelAttachmentAdapter";
-import { getVercelAIMessages } from "../getVercelAIMessages";
-import { AISDKMessageConverter } from "../utils/convertMessage";
+import { isToolUIPart } from "ai";
+import { useMemo, useState } from "react";
 import {
   type AISDKStorageFormat,
   aiSDKV6FormatAdapter,
 } from "../adapters/aiSDKFormatAdapter";
+import { getVercelAIMessages } from "../getVercelAIMessages";
+import { AISDKMessageConverter } from "../utils/convertMessage";
+import { sliceMessagesUntil } from "../utils/sliceMessagesUntil";
+import { toCreateMessage } from "../utils/toCreateMessage";
+import { vercelAttachmentAdapter } from "../utils/vercelAttachmentAdapter";
 import { useExternalHistory } from "./useExternalHistory";
 
 export type CustomToCreateMessageFunction = <

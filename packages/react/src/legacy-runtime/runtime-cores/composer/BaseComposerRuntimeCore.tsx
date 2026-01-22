@@ -1,18 +1,18 @@
+import type { AppendMessage, Unsubscribe } from "../../../types";
+import type { MessageRole, RunConfig } from "../../../types/AssistantTypes";
 import type {
   Attachment,
   CompleteAttachment,
   PendingAttachment,
 } from "../../../types/AttachmentTypes";
-import type { AppendMessage, Unsubscribe } from "../../../types";
 import type { AttachmentAdapter } from "../adapters/attachment";
+import type { DictationAdapter } from "../adapters/speech/SpeechAdapterTypes";
 import type {
   ComposerRuntimeCore,
   ComposerRuntimeEventType,
   DictationState,
 } from "../core/ComposerRuntimeCore";
-import type { MessageRole, RunConfig } from "../../../types/AssistantTypes";
 import { BaseSubscribable } from "../remote-thread-list/BaseSubscribable";
-import type { DictationAdapter } from "../adapters/speech/SpeechAdapterTypes";
 
 const isAttachmentComplete = (a: Attachment): a is CompleteAttachment =>
   a.status.type === "complete";
@@ -161,6 +161,7 @@ export abstract class BaseComposerRuntimeCore
       metadata: { custom: {} },
     };
 
+    debugger;
     this.handleSend(message);
     this._notifyEventSubscribers("send");
   }
