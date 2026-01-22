@@ -161,7 +161,6 @@ export abstract class BaseComposerRuntimeCore
       metadata: { custom: {} },
     };
 
-    debugger;
     this.handleSend(message);
     this._notifyEventSubscribers("send");
   }

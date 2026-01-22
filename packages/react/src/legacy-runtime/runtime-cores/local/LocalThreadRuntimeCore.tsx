@@ -65,7 +65,6 @@ export class LocalThreadRuntimeCore
     contextProvider: ModelContextProvider,
     options: LocalRuntimeOptionsBase,
   ) {
-    debugger;
     super(contextProvider);
     this.__internal_setOptions(options);
   }
@@ -128,7 +127,6 @@ export class LocalThreadRuntimeCore
 
   private _loadPromise: Promise<void> | undefined;
   public __internal_load() {
-    debugger;
     if (this._loadPromise) return this._loadPromise;
 
     const promise = this.adapters.history?.load() ?? Promise.resolve(null);
